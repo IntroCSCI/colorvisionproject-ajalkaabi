@@ -1,37 +1,38 @@
-//Author: Ahmed Alkaabi
-#include <iostream>
+// Author: Ahmed Alkaabi
 #include <fstream>
+#include <iostream>
 using namespace std;
 
-int main()
-{
-string line ="";
-size_t position;
-int colorValue;
-string fileName="";
-ifstream reader;
+int main() {
+	string line = "";
+	size_t position;
+  string fileName;
+	ifstream reader;
+  string color;
 
-cout <<"Please enter the file to get color values from\n";
-getline(cin, fileName);
-reader.open(fileName, ios::in);
-
-if(reader.is_open())
-{
+	
+    cout << "Please name the file to be opened:\n";
+	 getline(cin, fileName); 
+	reader.open(fileName, ios::in);
   
-  while(!reader.eof())
-  {
-    getline(reader, line);
-    position = line.find("#");
+	if (reader.is_open()) {
 
-    if(line[position])
-    {
-      for (char colorValue = position +=1; colorValue++ ;)
-      {
-        cout << line[colorValue];
-      }
-    }
-    cout << endl;
-  }
-}
-  return 0;
+    
+		while (!reader.eof()) {
+			getline(reader, line);
+			position = line.find("#");
+
+			if (line[position]) {
+        cout << '#';
+				for (char colorValue = position += 1; (line[colorValue] >= '0' && line[colorValue] <= '9') || (line[colorValue] >= 'A' && line[colorValue] <= 'F'); colorValue++) {
+          
+          
+					cout << line[colorValue];
+				}
+        
+			}
+			cout << endl;
+		}
+	}
+	return 0;
 }
