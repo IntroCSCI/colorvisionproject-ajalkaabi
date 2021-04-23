@@ -2,11 +2,11 @@
 
 ## Description
 
-My program asks for a file name, reads the file, and prints out  all the six characters color values that are there in the file. The color values are represented in hex format.
+My program asks for a file name, reads the file, and prints out all the six characters color values that are there in the file. The color values are represented in hex format. Then the program prints out how many unique colors are in the file.
 
 ### v0.2 Updates
 
-*Coming soon*
+The program can now print out how many unique color are in the file. I also fixed a bug from the previous version of the program, which was sometimes the program prints out some values that are not color values.
 
 ### v1.0 Updates
 
@@ -22,36 +22,31 @@ Ahmed Alkaabi
 To run the program, give the following commands:
 
 ```
-g++ --std=c++11 *.cpp -o cvp
-./cvp
-Enter the name of the file that you want to get color values from.
+Enter the file name that you want to analyze.
 ```
 
 Here is an example of the program running:
 
 ```
- g++ -std=c++11 *.cpp -o cvp; ./cvp
-Please enter the name of the file that you want to get color values from:
-black.css
+Please enter file name to analyze: test2.css
 
-#E69F00
-#009E73
-#F0E442
-#0072B2
-#D55E00
-#CC79A7
- 
+The colors in the palette are: 
+00bfff
+ffffff
+
+Analysis:
+There are 2 unique colors.
 ```
 
 ## C++ Guide
 
 ### Variables and Data Types
 
-I used multiple strings such as (filaName), which stores the name of the file the user inputs. And (line) which stores each line with a color value in it after opening the file. I used one char variable which is (colorValue), and this variable stores each hex character. I aslo used one int (colorValue), and it's used to represent the position of color values' charcacters. Finally, I used (reader) from ifstream, which represents the variable that reads the opened files.
+I used multiple strings such as (filaName), which stores the name of the file the user inputs. And (line) which stores each line with a color value in it after opening the file. I used one char variable which is (colorValue), and this variable stores each hex character. I aslo used one int (colorValues), and it's used to represent the position of color values' charcacters. Finally, I used (reader) from ifstream, which represents the variable that reads the opened files.
 
 ### Console Input and Output
 
-I used three console outputs. The first is to ask the user for the name of the file they want to open. The second one is to create a space (endl) between the user's input and the output of the program. And the third one to print out the color values that are found in the file. I also used two console inputs, the first one to store the file name. And the second one to store each line in the opened filewith a color value.
+I used multiple console outputs. The first is to ask the user for the name of the file they want to open. The second one is to create a space (endl) between the user's input and the output of the program. And the third one to print out the color values that are found in the file. I also used two console inputs, the first one to store the file name. And the second one to store each line in the opened filewith a color value.
 
 ### Decisions
 
@@ -67,12 +62,12 @@ I used file input, to open the file and read from it only, without editing it. F
 
 ### Arrays/Vectors
 
-*Coming in version 0.2*
+I used vectors to store the colors read from the file. I used arrays to list the common color names used in css and their corresponding color values in hex.
 
 ### Functions
 
-*Coming in version 0.2*
+I used a function to check if a color is existing in the color table and include that color if it is not in the color table.
 
 ### Classes
 
-*Coming in version 1.0*
+I created the Color class to store information of the color and implement methods to do conversion from string to Color, conversion from Color to string, and defining of equal operator to see if two colors are equal.
