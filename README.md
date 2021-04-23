@@ -66,7 +66,9 @@ I used vectors to store the colors read from the file. I used arrays to list the
 
 ### Functions
 
-I used a function to check if a color is existing in the color table and include that color if it is not in the color table.
+I used a function to check if a color is existing in the color table and include that color if it is not in the color table. (A) It created a unique function to hanlde the insertion of new colors in the table.
+(B) The parameters passed by objection reference is the color table vector and passed by pointer is the color. With passing by reference, you can modify the object/class from the function itself. It is also much faster since the computer doesnt have to duplicate the object.
+(C) This function returns a bool type to signify that the new color is unique.
 
 ### Classes
 
