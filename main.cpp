@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Class declaration of color
 class Color {
     public:
         unsigned char r, g, b;
@@ -18,11 +17,10 @@ class Color {
         string str;
 };
 
-// Class definition of colors
 Color::Color(string colorStr) {
     this->str = colorStr;
 
-    if (this->str.length() < 6) { // check if three digit
+    if (this->str.length() < 6) {
         string cs;
         cs += this->str[0];
         cs += this->str[0];
@@ -111,7 +109,6 @@ int main() {
     string fileName;
     ifstream file;
 
-    // Repeatedly ask the user for a file until it opens sucessfully
     do {
         cout << "Please enter file name to analyze: ";
         getline(cin, fileName);
@@ -120,8 +117,6 @@ int main() {
 
     } while (!file.is_open());
 
-
-    // Read the colors in the file
     string color;
     vector<Color> colorTable;
 
@@ -132,9 +127,9 @@ int main() {
     Color* c;
 
     while ((ch = file.get()) != EOF) {
-        if (ch == ' ' || ch == '\n' || ch == '\r' || ch == '\t') { // end of word
+        if (ch == ' ' || ch == '\n') {
             if (keyword.length() > 0) {
-                if (keyword[0] == '#') { // This is a color hex  
+                if (keyword[0] == '#') {
                     try {
                         c = new Color(keyword.substr(1));
                         if (!appendUnique(colorTable, c)) {
@@ -142,7 +137,7 @@ int main() {
                         } else 
                             cout << c->toString() << endl;
                     } catch(const invalid_argument& ia) {}
-                } else { // check color names
+                } else {
                     for (int i = 0; i < 16; i++) {
                         if (keyword == colorNames[i]) {
                             try {
@@ -152,7 +147,7 @@ int main() {
                                 } else
                                     cout << c->toString() << endl;
                             } catch(const invalid_argument& ia) {}
-                            break; // stop the loop once found
+                            break;
                         }
                     }
                 }
@@ -165,7 +160,7 @@ int main() {
     }
 
     cout << endl << "Analysis:" << endl;
-    cout << "There are " << colorTable.size() << " unique colors." << endl;
+    cout << "There are " << colorTable.size() << " unique colors in the file." << endl;
     
     return 0;
 }
