@@ -201,7 +201,6 @@ int main() {
                         }
                     }
                 }
-
                 keyword = "";
             }
         } else {
