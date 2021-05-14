@@ -10,7 +10,7 @@ The program can now print out how many unique color are in the file. I also fixe
 
 ### v1.0 Updates
 
-*Coming soon*
+The program now can print out how many each color have been used, and a list of commonly used colors. Also, the program now has a Color Blindness Test, which shows which color blindness conditions would have problems with the color palettes.
 
 
 ## Developer
@@ -30,12 +30,32 @@ Here is an example of the program running:
 ```
 Please enter file name to analyze: test2.css
 
-The colors in the palette are: 
-00bfff
-ffffff
+The colors in the palette are
+  HEX   USAGE
+00BFff 1
+FFFFff 1
 
 Analysis:
 There are 2 unique colors.
+
+Commonly Used Colors:
+  HEX   USAGE
+00BFff   1
+000000   0
+000000   0
+000000   0
+000000   0
+
+Color Blindness Test:
+   CONDITION    RESULT
+Protanopia      Failed       
+Protanomaly     Failed       
+Deuteranopia    Failed       
+Deuteranomaly   Failed       
+Tritanopia      Failed       
+Tritanomaly     Failed       
+Achromatopsia   Failed       
+Achromatomaly   Failed 
 ```
 
 ## C++ Guide
