@@ -2,7 +2,7 @@
 
 ## Description
 
-My program asks for a file name, reads the file, and prints out all the six characters color values that are there in the file. The color values are represented in hex format. Then the program prints out how many unique colors are in the file.
+My program asks for a file name, reads the file, and prints out all the six characters color values that are there in the file. The color values are represented in hex format. Then the program prints out how many unique colors are in the file. Next, it checks for the commonly used colors in the file and consider them as the color palette of the file. It then checks if the color combination is good for several color blindlness condition.
 
 ### v0.2 Updates
 
@@ -11,7 +11,6 @@ The program can now print out how many unique color are in the file. I also fixe
 ### v1.0 Updates
 
 The program now can print out how many each color have been used, and a list of commonly used colors. Also, the program now has a Color Blindness Test, which shows which color blindness conditions would have problems with the color palettes.
-
 
 ## Developer
 
@@ -32,30 +31,41 @@ Please enter file name to analyze: test2.css
 
 The colors in the palette are
   HEX   USAGE
-00BFff 1
-FFFFff 1
+FFFF00 1
+000000 4
+C0C0c0 1
+999999 1
+FFFFff 4
+DDDDdd 2
+333333 1
+428Bca 1
+2A6496 1
+EEEEee 1
+777777 1
+FCF8e3 1
 
 Analysis:
-There are 2 unique colors.
+There are 12 unique colors.
 
 Commonly Used Colors:
   HEX   USAGE
-00BFff   1
-000000   0
-000000   0
-000000   0
-000000   0
+FFFF00   1
+000000   4
+C0C0c0   1
+999999   1
+FFFFff   4
 
 Color Blindness Test:
    CONDITION    RESULT
-Protanopia      Failed       
-Protanomaly     Failed       
-Deuteranopia    Failed       
-Deuteranomaly   Failed       
-Tritanopia      Failed       
-Tritanomaly     Failed       
-Achromatopsia   Failed       
-Achromatomaly   Failed 
+Protanopia      Passed       
+Protanomaly     Passed       
+Deuteranopia    Passed       
+Deuteranomaly   Passed       
+Tritanopia      Passed       
+Tritanomaly     Passed       
+Achromatopsia   Passed       
+Achromatomaly   Passed 
+
 ```
 
 ## C++ Guide
@@ -74,11 +84,11 @@ I used two decisions in my program, and both of them are from the same type (if)
 
 ### Iteration
 
-I have two examples of iteration in my program. The first one is (while loop), and this loop helps printing out the color values as long as the program didn't reach the end of the opened file, and that's because of the condition of this (while loop) which is (!reader.eof). The second example of iteration in my program is the (for loop), and it's useful for me because it made the program read print out only the characters that are within the hexadecimal range.
+I have two examples of iteration in my program. The first one is (while loop), and this loop helps printing out the color values as long as the program didn't reach the end of the opened file, and that's because of the condition of this (while loop) which is (!reader.eof). The second example of iteration in my program is the (for loop), and it's useful for me because it made the program read print out only the characters that are within the hexadecimal range. While and for loops are used to read each word in the file to extract the colors and analyze each one. These loops were also used to prevent duplication of colors in the vector.
 
 ### File Input and Output
 
-I used file input, to open the file and read from it only, without editing it. File Input helped read the file and get me to my goal, which is reading the color values from the opened file.
+I used file input, to open the file and read from it only, without editing it. File Input helped read the file and get me to my goal, which is reading the color values from the opened file. With the help of fstream library, we were able to read the file and perform operation on it. The fstream library offers a cout/cin style of accessing data in the file.
 
 ### Arrays/Vectors
 
@@ -89,6 +99,8 @@ I used vectors to store the colors read from the file. I used arrays to list the
 I used a function to check if a color is existing in the color table and include that color if it is not in the color table. (A) It created a unique function to hanlde the insertion of new colors in the table.
 (B) The parameters passed by objection reference is the color table vector and passed by pointer is the color. With passing by reference, you can modify the object/class from the function itself. It is also much faster since the computer doesnt have to duplicate the object.
 (C) This function returns a bool type to signify that the new color is unique.
+(D) It created a function to filter the given color based on the color blindness condition.
+(E) It used a function to compare color values so we can arrange them in smallest rgb to largest rgb values.
 
 ### Classes
 
