@@ -72,7 +72,7 @@ Achromatomaly   Passed
 
 ### Variables and Data Types
 
-I used multiple strings such as (filaName), which stores the name of the file the user inputs. And (line) which stores each line with a color value in it after opening the file. I used one char variable which is (colorValue), and this variable stores each hex character. I aslo used one int (colorValues), and it's used to represent the position of color values' charcacters. Finally, I used (reader) from ifstream, which represents the variable that reads the opened files.
+I used multiple strings such as (fileName), which stores the name of the file the user inputs. And (line) which stores each line with a color value in it after opening the file. I used one char variable which is (colorValue), and this variable stores each hex character. I aslo used one int (colorValues), and it's used to represent the position of color values' charcacters. Finally, I used (reader) from ifstream, which represents the variable that reads the opened files.
 
 ### Console Input and Output
 
@@ -92,7 +92,7 @@ I used file input, to open the file and read from it only, without editing it. F
 
 ### Arrays/Vectors
 
-I used vectors to store the colors read from the file. I used arrays to list the common color names used in css and their corresponding color values in hex.
+I used vectors to store the colors read from the file. I used arrays to list the common color names used in css and their corresponding color values in hex. Without arrays and vectors, it would be complicated and difficult to store the colors read from the file and list them, so using them made creating the program easier.
 
 ### Functions
 
@@ -104,4 +104,4 @@ I used a function to check if a color is existing in the color table and include
 
 ### Classes
 
-I created the Color class to store information of the color and implement methods to do conversion from string to Color, conversion from Color to string, and defining of equal operator to see if two colors are equal.
+I created the Color class to store information of the color and implement methods to do conversion from string to Color, conversion from Color to string, and defining of equal operator to see if two colors are equal. Classes helps make the code shorter and replace many functions with less time and effort.
